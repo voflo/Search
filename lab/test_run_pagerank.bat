@@ -1,0 +1,1 @@
+java -cp pagerank -Xmx1g PageRank "pagerank\linksTest.txt"

@@ -1,0 +1,42 @@
+//
+//  Information retrieval course
+//  First version: Johan Boye 2016
+//
+// In this file you can put your regular expressions
+// for matching non-standard words (like mail addresses).
+//
+// As you have probably already understood, lines beginning
+// with "//" are comments.
+
+// Twenty-four seven
+\d+/\d+
+
+// ADD YOUR PATTERNS HERE
+
+//Compound words, that's, they're, I'd...
+[a-zA-Z]*\'(s|re|t|ll|em|m|d)
+
+//E-mail address. Does not check the length of the mail-address...
+[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*
+
+//IP-address. Not only ip-addresses, any number of numbers separated by ".".
+(\d+\.)+\d+
+
+//Hyphens (bindestreck).
+// Matches several hyphens in a row "--"
+[a-zA-Z0-9]+(\-[a-zA-Z0-9]+)+|\-{2,}
+
+//Numbers starting with "+": +4633243541233
+\+\d+
+
+//Abbreviations (t.ex. e.g.)
+e\.g\.|i\.e\.|E\.g\.|I\.e\.|p\.m\.|P\.M\.|a\.m\.|A\.M\.|a\.d\.|A\.D\.|b\.c\.|B\.C\.
+
+//URLer (Start with "http(s)://")
+http(s)?:\/\/[a-zA-Z0-9\-\/\.\:\?\#\=\_\+]+
+
+//Time, e.g. 16:43:22
+[0-2]\d(\:[0-5]\d){1,2}
+
+//Numbers divided into three-digit groups separated with comma and possible last full stop, e.g. 22,443,123.544566
+[0-9]{0,3}(\,[0-9]{3})+(\.\d+)?
